@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Champs-Élysées | Notre café</title>
+  <meta name="description" content="Découvrez le menu du Café Champs-Élysées, votre coin café préféré.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f3eb;
+      color: #302018;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #302018;
+      color: white;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #e5b77e;
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #302018eF, #30201855),
+        url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+      color: white;
+    }
+
+    .hero div {
+      max-width: 560px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      background: #c58b52;
+      color: #20140d;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #e0aa6c;
+    }
+
+    section {
+      padding: 55px 8%;
+      text-align: center;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border: 1px solid #95602f;
+      border-radius: 25px;
+      background: white;
+      color: #302018;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: #302018;
+      color: white;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 12px;
+      padding: 25px 18px;
+      box-shadow: 0 4px 16px #30201810;
+      transition: transform 0.2s;
+    }
+
+    .item:hover {
+      transform: translateY(-4px);
+    }
+
+    .item[hidden] {
+      display: none;
+    }
+
+    .item h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #95602f;
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    footer {
+      background: #302018;
+      color: white;
+      padding: 28px 8%;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 18px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      section {
+        padding: 42px 6%;
+      }
+    }
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.contact-buttons .button {
+  margin-top: 0;
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">☕ Café Champs-Élysées</div>
+
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="accueil">
+      <div>
+        <h1>Votre pause café préférée</h1>
+        <p>
+          Un bon café, une ambiance chaleureuse
+          et des moments à partager.
+          Bienvenue chez Café Champs-Élysées !
+        </p>
+        <a class="button" href="#menu">Découvrir notre menu</a>
+      </div>
+    </div>
+
+    <section id="menu">
+      <h2>Notre Menu</h2>
+      <p>Découvrez nos spécialités.</p>
+
+      <div class="filters">
+        <button type="button" class="filter-btn active" data-filter="all">
+          Tout
+        </button>
+        <button type="button" class="filter-btn" data-filter="cafe">
+          Cafés
+        </button>
+        <button type="button" class="filter-btn" data-filter="froid">
+          Boissons froides
+        </button>
+        <button type="button" class="filter-btn" data-filter="autre">
+          Autres
+        </button>
+      </div>
+
+      <div class="menu">
+        <article class="item" data-category="cafe">
+          <h3>☕ Express</h3>
+          <p>Un café intense et savoureux.</p>
+          <div class="price">2,000 DT</div>
+        </article>
+
+        <article class="item" data-category="cafe">
+          <h3>☕ Cappuccino</h3>
+          <p>Un café doux et crémeux.</p>
+          <div class="price">3,500 DT</div>
+        </article>
+
+        <article class="item" data-category="cafe">
+          <h3>☕ Café Crème</h3>
+          <p>Un café généreux et onctueux.</p>
+          <div class="price">3,000 DT</div>
+        </article>
+
+        <article class="item" data-category="froid">
+          <h3>🥤 Jus d'orange</h3>
+          <p>Une boisson fraîche et fruitée.</p>
+          <div class="price">4,000 DT</div>
+        </article>
+
+        <article class="item" data-category="froid">
+          <h3>🧊 Citronnade</h3>
+          <p>Une citronnade rafraîchissante.</p>
+          <div class="price">3,500 DT</div>
+        </article>
+
+        <article class="item" data-category="autre">
+          <h3>🥐 Croissant</h3>
+          <p>Un croissant pour accompagner votre café.</p>
+          <div class="price">2,500 DT</div>
+        </article>
+      </div>
+    </section>
+
+    
+<section id="contact">
+  <h2>Venez nous rendre visite</h2>
+  <p>Retrouvez-nous au Café Champs-Élysées, au Kef.</p>
+
+  <p>📍 Adresse : 5PJC+234, Le Kef, Tunisie</p>
+
+  <p>🕒 Horaires : consultez nos horaires sur Google Maps.</p>
+
+  <div class="contact-buttons">
+    <a
+      class="button"
+      href="tel:+21658778602"
+    >
+      📞 Nous appeler
+    </a>
+
+    <a
+      class="button"
+      href="https://www.google.com/maps/search/?api=1&query=5PJC%2B234%2C%20Le%20Kef%2C%20Tunisie"
+      target="_blank"
+      rel="noopener"
+    >
+      📍 Voir l'itinéraire
+    </a>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    © 2026 Café Champs-Élysées — Site de démonstration
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".item");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.filter;
+
+        buttons.forEach((b) => b.classList.remove("active"));
+        button.classList.add("active");
+
+        items.forEach((item) => {
+          const itemCategory = item.dataset.category;
+
+          item.hidden =
+            category !== "all" && itemCategory !== category;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
